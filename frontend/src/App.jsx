@@ -13,24 +13,24 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { store } from "./app/store";
-// import { Provider } from "react-redux";
+import { Provider } from "react-redux";
 
 function App() {
   return (
     <>
-      {/* <Provider store={store}> */}
-      <BrowserRouter>
-        <div className='container'>
-          <Header />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-      <ToastContainer />
-      {/* </Provider> */}
+      <Provider store={store}>
+        <BrowserRouter>
+          <div className='container'>
+            <Header />
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/register' element={<Register />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+        <ToastContainer />
+      </Provider>
     </>
   );
 }
