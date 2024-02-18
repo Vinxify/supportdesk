@@ -3,6 +3,7 @@ import {
   Routes,
   Route,
   BrowserRouter,
+  Outlet,
 } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -11,9 +12,11 @@ import Register from "./pages/Register";
 import Header from "./components/Header";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import NewTicket from "./pages/NewTicket";
 
 import { store } from "./app/store";
 import { Provider } from "react-redux";
+import Private from "./components/Private";
 
 function App() {
   return (
@@ -26,6 +29,10 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
+
+              <Route path='/new-ticket' element={<Private />}>
+                <Route path='/new-ticket' element={<NewTicket />} />
+              </Route>
             </Routes>
           </div>
         </BrowserRouter>
