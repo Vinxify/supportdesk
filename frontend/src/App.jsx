@@ -18,6 +18,9 @@ import { store } from "./app/store";
 import { Provider } from "react-redux";
 import Private from "./components/Private";
 
+import Tickets from "./pages/Tickets";
+import Ticket from "./pages/Ticket";
+
 function App() {
   return (
     <>
@@ -32,6 +35,12 @@ function App() {
 
               <Route path='/new-ticket' element={<Private />}>
                 <Route path='/new-ticket' element={<NewTicket />} />
+              </Route>
+              <Route path='/tickets' element={<Private />}>
+                <Route path='/tickets' element={<Tickets />} />
+              </Route>
+              <Route path='/ticket/:ticketId' element={<Private />}>
+                <Route path='/ticket/:ticketId' element={<Ticket />} />
               </Route>
             </Routes>
           </div>
